@@ -1,0 +1,40 @@
+Package: gfsynopsis-noaa
+Type: Package
+Title: Combine Catch and Biological Data from Northeast Pacific Ocean Fish Surveys and Create Data Comparisons
+Version: 0.0.1
+Authors@R: c(
+    person(c("Chantel","R."), "Wetzel",email = "chantel.wetzel@noaa.gov", 
+      role = c("aut")),
+    person(c("Eric", "J."), "Ward", email = "eric.ward@noaa.gov",
+      role = c("aut")),
+    person(c("Lewis", "A.", "K."), "Barnett", email = "lewis.barnett@noaa.gov",
+      role = c("aut")),      
+    person(c("Bridget", "E."), "Ferriss", email = "bridget.ferriss@noaa.gov",
+      role = c("aut")),    
+    person(c("Kelli", "F."), "Johnson", email = "kelli.johnson@noaa.gov", 
+      role = c("aut")),
+    )
+Maintainer: Chantel Wetzel <chantel.wetzel@noaa.gov>
+Description: This package combines catch and biological data from fish surveys in multiple regions and create visual data comparisons.
+    The data are cached locally in a SQLite database.
+License: GPL-3
+Encoding: UTF-8
+Depends:
+    R (>= 4.0.0)
+Imports:
+    tidyverse,
+    ggridges,
+    glue,
+    nwfscSurvey,
+    akfingapdata
+Suggests:
+    testthat,
+    knitr,
+    rmarkdown
+Remotes:
+  github::pfmc-assessments/nwfscSurvey
+  github::MattCallahan-NOAA/akfingapdata
+RoxygenNote: 7.3.1
+VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
+LazyData: true
