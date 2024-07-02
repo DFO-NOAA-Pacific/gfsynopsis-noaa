@@ -5,16 +5,7 @@ library(akfingapdata)
 library(tidyverse)
 library(keyring)
 
-# List of species to pull and calculate design-based biomass estimates for.
-# If adding new species to the list these species will also need to be added
-# to the nwfsc_strata_by_species() with any special stratas also added to
-# get_nwfsc_strata().
-
-spp_list <- list(
-  "Pacific ocean perch",
-  "Dover sole",
-  "arrowtooth flounder",
-  "sablefish")
+source(here::here("data-raw", "get-species.R"))
 
 #===============================================================================
 # Pull and calculate the design-based biomass estimates for the U.S. West Coast.
