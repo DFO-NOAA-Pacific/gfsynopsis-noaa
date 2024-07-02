@@ -4,7 +4,7 @@
 \alias{pull_format_nwfsc_biomass}
 \title{Pull biomass estimates from NWFSC survey}
 \usage{
-pull_format_nwfsc_biomass(common_name, survey)
+pull_format_nwfsc_biomass(common_name, survey = "NWFSC.Combo")
 }
 \arguments{
 \item{common_name}{The common name used in the NWFSC data warehouse.}
