@@ -1,7 +1,7 @@
 #' Plot length-weight and length-at-age
 #'
-#' @param data Dataframe of specimens data.
-#' @param parameters
+#' @param data Dataframe of specimens data filtered down to an unique species.
+#' @param parameters List of biological parameter estimates.
 #' @param dir  Directory where output will be saved. The directory where the file should be saved.
 #' If dir = NULL no output will be saved.
 #' @param plot A vector of integers to specify which plots you would like. The
@@ -9,7 +9,7 @@
 #'   correspond to the following figures:
 #'   1. Length-weight.
 #'   2. Length-at-age.
-#' @param height, width Numeric values for the figure width and height in
+#' @param height,width Numeric values for the figure width and height in
 #'   inches. The defaults are 7 by 7 inches.
 #'
 #' @author Chantel Wetzel
@@ -30,7 +30,6 @@ plot_biology <- function(
 
   igroup <- 1
   if (igroup %in% plot) {
-
     para <- parameters[["mass_length"]]
     para <- para[para$common_name == sp, ]
 

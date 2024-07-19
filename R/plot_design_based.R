@@ -8,7 +8,7 @@
 #'   correspond to the following figures:
 #'   1. Design based index by year and region.
 #'   2. Standardized design based index by year and region.
-#' @param height, width Numeric values for the figure width and height in
+#' @param height,width Numeric values for the figure width and height in
 #'   inches. The defaults are 7 by 7 inches.
 #'
 #' @author Chantel Wetzel
