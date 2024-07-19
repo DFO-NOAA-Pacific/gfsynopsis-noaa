@@ -28,8 +28,8 @@ plot_design_based <- function(
   if (igroup %in% plot) {
     p1 <- ggplot2::ggplot(data = data) +
       ggplot2::geom_ribbon(ggplot2::aes(x = year, ymin = lwr, ymax = upr), fill = "lightgray")+
-      ggplot2::geom_line(gplot2::aes(x = year, y = est)) +
-      ggplot2::geom_point(gplot2::aes(x = year, y = est)) +
+      ggplot2::geom_line(ggplot2::aes(x = year, y = est)) +
+      ggplot2::geom_point(ggplot2::aes(x = year, y = est)) +
       ggplot2::ylab("Biomass (mt)") +
       ggplot2::theme_bw() +
       ggplot2::ggtitle(sp) +
@@ -55,8 +55,8 @@ plot_design_based <- function(
   igroup <- 2
   if (igroup %in% plot) {
     p2 <- ggplot2::ggplot(data = data) +
-      ggplot2::geom_line(gplot2::aes(x = year, y = est_stand, color = region)) +
-      ggplot2::geom_point(gplot2::aes(x = year, y = est_stand, color = region)) +
+      ggplot2::geom_line(ggplot2::aes(x = year, y = est_stand, color = region)) +
+      ggplot2::geom_point(ggplot2::aes(x = year, y = est_stand, color = region)) +
       ggplot2::geom_hline(yintercept = 1, linetype="dashed", color = "lightgrey") +
       ggplot2::ylab("Standardized Index") +
       ggplot2::theme_bw() +

@@ -1,7 +1,7 @@
 #' Pull biomass estimates from NWFSC survey
 #'
 #' @param common_name The common name used in the NWFSC data warehouse.
-#' @param survey_name The survey name used in the NWFSC data warehouse.
+#' @param survey The survey name used in the NWFSC data warehouse.
 #'
 #' @returns Matrix of design-based biomass estimate for a species.
 #' @author Chantel Wetzel

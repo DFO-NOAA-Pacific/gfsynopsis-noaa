@@ -1,6 +1,6 @@
 #' Pull biological specimens from AFSC surveys
 #'
-#' @param survey_defition_id Survey definition identifier.
+#' @param survey_definition_id Survey definition identifier.
 #' @param area_id Survey area identifier.
 #' @param taxa Vector of information on species created by
 #'    akfingapdata::get_gap_taxonomic_classification().
