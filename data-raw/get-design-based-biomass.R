@@ -19,25 +19,17 @@ nwfsc_biomass <- get_ests_nwfsc |> purrr::list_rbind()
 #===============================================================================
 # Pull the design-based biomass estimates for Alaska
 #===============================================================================
+
 token <- akfingapdata::create_token(here::here("wetzel_akfin_api_string.txt"))
-
-taxa <- purrr::lmap(
-  .x = spp_list,
-  .f = get_taxa
-)
-
-survey_definition_id <- 47
-area_id <- 99903
-start_year <- 1990
-end_year <- 2050
+afsc_species_survey <- get_afsc_species_survey(spp_list = spp_list)
 
 get_ests_afsc <- purrr::pmap(
   .l = list(
-    survey_definition_id = survey_definition_id,
-    area_id = area_id,
-    taxa = taxa,
-    start_year = start_year,
-    end_year = end_year
+    survey_definition_id = afsc_species_survey$survey_definition_id,
+    area_id = afsc_species_survey$area_id,
+    taxa = afsc_species_survey$taxa,
+    start_year = afsc_species_survey$start_year,
+    end_year = afsc_species_survey$end_year
   ),
   .f = pull_format_gap_biomass
 )
