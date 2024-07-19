@@ -13,6 +13,8 @@ pull_format_gap_specimens(
 )
 }
 \arguments{
+\item{survey_definition_id}{Survey definition identifier.}
+
 \item{area_id}{Survey area identifier.}
 
 \item{taxa}{Vector of information on species created by
@@ -21,8 +23,6 @@ akfingapdata::get_gap_taxonomic_classification().}
 \item{start_year}{The start year of data to pull.}
 
 \item{end_year}{The end year of data to pull.}
-
-\item{survey_defition_id}{Survey definition identifier.}
 }
 \value{
 Matrix of design-based biomass estimate for a species.

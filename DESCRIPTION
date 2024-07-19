@@ -21,9 +21,9 @@ Encoding: UTF-8
 Depends:
     R (>= 4.0.0)
 Imports:
-    tidyverse,
-    ggridges,
-    glue,
+    ggplot2,
+    dplyr,
+    purrr,
     nwfscSurvey,
     akfingapdata
 Suggests:

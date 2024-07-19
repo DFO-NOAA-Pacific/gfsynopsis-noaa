@@ -9,7 +9,7 @@ pull_format_nwfsc_biomass(common_name, survey = "NWFSC.Combo")
 \arguments{
 \item{common_name}{The common name used in the NWFSC data warehouse.}
 
-\item{survey_name}{The survey name used in the NWFSC data warehouse.}
+\item{survey}{The survey name used in the NWFSC data warehouse.}
 }
 \value{
 Matrix of design-based biomass estimate for a species.
