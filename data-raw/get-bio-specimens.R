@@ -2,7 +2,6 @@
 devtools::load_all(here::here())
 # Load the required libraries
 library(akfingapdata)
-library(tidyverse)
 library(keyring)
 
 source(here::here("data-raw", "get-species.R"))
