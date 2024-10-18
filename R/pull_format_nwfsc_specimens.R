@@ -18,7 +18,8 @@ pull_format_nwfsc_specimens <- function(
   specimens <- nwfscSurvey::pull_bio(
     common_name = common_name,
     survey = survey,
-    convert = FALSE
+    convert = FALSE,
+    verbose = FALSE
     ) |>
     dplyr::mutate(
       sex = factor(dplyr::case_match(sex, "M" ~ "Male", "F" ~ "Female", "U" ~ "Unsexed"), levels = c("Male", "Female", "Unsexed")),

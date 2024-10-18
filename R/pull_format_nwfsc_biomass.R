@@ -18,7 +18,8 @@ pull_format_nwfsc_biomass <- function(
   catch <- nwfscSurvey::pull_catch(
     common_name = common_name,
     survey = survey,
-    convert = FALSE
+    convert = FALSE,
+    verbose = FALSE
   )
 
   # Define the strata for expansion
