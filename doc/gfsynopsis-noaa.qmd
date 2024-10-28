@@ -1,0 +1,38 @@
+---
+title: "gfsynopsis-noaa"
+author: "Chantel Wetzel"
+format: html
+---
+
+```{r}
+#| label: load-data
+#| echo: false
+#| message: false
+suppressMessages(library(tidyverse))
+library(gt)
+library(gtsummary)
+library(glue)
+devtools::load_all(here::here())
+
+source(here::here("doc", "to_plot.R"))
+load(here::here("data", "biomass.rda"))
+load(here::here("data", "specimens.rda"))
+load(here::here("data", "samples.rda"))
+load(here::here("data", "parameters.rda"))
+#load(here::here("data", "age_comps.rda"))
+#load(here::here("data", "length_comps.rda"))
+```
+
+```{r}
+#| echo: false
+#| message: false
+sp <- sort(unique(biomass$common_name))
+for (a in sp) {
+  to_plot(
+    common_name = a,
+    biomass = biomass,
+    specimens = specimens,
+    parameters = parameters
+  )
+}
+```
