@@ -1,0 +1,21 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/get_afsc_species_survey.html</loc></url>
+<url><loc>/reference/get_nwfsc_strata.html</loc></url>
+<url><loc>/reference/get_taxa.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/nwfsc_strata_by_species.html</loc></url>
+<url><loc>/reference/plot_biology.html</loc></url>
+<url><loc>/reference/plot_design_based.html</loc></url>
+<url><loc>/reference/pull_format_gap_biomass.html</loc></url>
+<url><loc>/reference/pull_format_gap_size_comp.html</loc></url>
+<url><loc>/reference/pull_format_gap_specimens.html</loc></url>
+<url><loc>/reference/pull_format_nwfsc_biomass.html</loc></url>
+<url><loc>/reference/pull_format_nwfsc_size_comp.html</loc></url>
+<url><loc>/reference/pull_format_nwfsc_specimens.html</loc></url>
+<url><loc>/reference/surveydata.html</loc></url>
+</urlset>
+
