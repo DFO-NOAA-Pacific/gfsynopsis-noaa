@@ -7,4 +7,5 @@ spp_list <- list(
   "Pacific ocean perch",
   "Dover sole",
   "arrowtooth flounder",
-  "sablefish")
+  "sablefish"
+)

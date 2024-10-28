@@ -3,8 +3,7 @@
 #' @author Chantel Wetzel
 #' @export
 #'
-nwfsc_strata_by_species <- function(){
-
+nwfsc_strata_by_species <- function() {
   strata_to_use <- rbind(
     c("arrowtooth flounder", "strata 34.5-49"),
     c("Dover sole", "strata cw deep"),

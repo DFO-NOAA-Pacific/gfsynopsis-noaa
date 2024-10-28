@@ -8,7 +8,6 @@
 #' @export
 #'
 get_afsc_species_survey <- function(spp_list) {
-
   species_survey <- list()
 
   species_survey$taxa <- purrr::lmap(

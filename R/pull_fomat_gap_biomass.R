@@ -14,12 +14,11 @@
 #' @export
 #'
 pull_format_gap_biomass <- function(
-  survey_definition_id,
-  area_id,
-  taxa,
-  start_year,
-  end_year) {
-
+    survey_definition_id,
+    area_id,
+    taxa,
+    start_year,
+    end_year) {
   survey <- akfingapdata::get_gap_survey_design()
   area <- akfingapdata::get_gap_area()
   stratum <- akfingapdata::get_gap_stratum_groups()
@@ -30,9 +29,11 @@ pull_format_gap_biomass <- function(
         # remove year specific information from survey, we only need the region codes
         dplyr::group_by(survey_definition_id) |>
         dplyr::summarize(
-          survey_definition_id = max(survey_definition_id)),
-      by = "survey_definition_id") |>
-    dplyr::left_join(area,  by = c("area_id"="area_id", "survey_definition_id"="survey_definition_id", "design_year"="design_year"))
+          survey_definition_id = max(survey_definition_id)
+        ),
+      by = "survey_definition_id"
+    ) |>
+    dplyr::left_join(area, by = c("area_id" = "area_id", "survey_definition_id" = "survey_definition_id", "design_year" = "design_year"))
 
 
   gap_biomass <- akfingapdata::get_gap_biomass(
@@ -40,7 +41,8 @@ pull_format_gap_biomass <- function(
     area_id = area_id,
     species_code = taxa[, "species_code"],
     start_year = start_year,
-    end_year = end_year)
+    end_year = end_year
+  )
 
   gap_biomass$common_name <- taxa[, "common_name"]
   gap_biomass$scientific_name <- taxa[, "species_name"]
@@ -54,7 +56,7 @@ pull_format_gap_biomass <- function(
       lwr = biomass_mt - sqrt(biomass_var),
       upr = biomass_mt + sqrt(biomass_var)
     )
-  columns_to_keep <-  c(
+  columns_to_keep <- c(
     "science_center",
     "region",
     "area",
