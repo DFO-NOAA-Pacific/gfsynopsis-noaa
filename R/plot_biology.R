@@ -15,6 +15,7 @@
 #' @author Chantel Wetzel
 #' @import ggplot2
 #' @import dplyr
+#' @import cli
 #' @export
 #'
 plot_biology <- function(
@@ -24,6 +25,11 @@ plot_biology <- function(
     plot = 1:2,
     height = 7,
     width = 7) {
+
+  if (length(plot) == 2){
+    cli::cli_inform("Two separate function calls are required to
+                    return each plot type.")
+  }
 
   colors <- c("#414487FF", "#22A884FF")
   sp <- unique(data[,"common_name"])
@@ -90,7 +96,7 @@ plot_biology <- function(
         height = height,
         width = width)
     } else {
-      print(p1)
+      return(p1)
     }
   }
 
@@ -158,7 +164,7 @@ plot_biology <- function(
         height = height,
         width = width)
     } else {
-      print(p2)
+      return(p2)
     }
   }
 }

@@ -64,9 +64,6 @@ pull_format_gap_size_comp <- function(
       dplyr::mutate(
         total = sum(population_count),
         proportion = 100 * population_count / unique(total)
-      ) |>
-      dplyr::rename(
-        age_years = age
       )
   }
 
@@ -90,7 +87,7 @@ pull_format_gap_size_comp <- function(
     dplyr::if_else(
       comp_type == "length_cm",
       true = "length_cm",
-      false = "age_years"),
+      false = "age"),
     "population_count",
     "total",
     "proportion"

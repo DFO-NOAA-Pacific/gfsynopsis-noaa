@@ -7,7 +7,6 @@
 #' @author Chantel Wetzel
 #'
 #' @import nwfscSurvey
-#' @import ggplot2
 #' @import dplyr
 #' @export
 #'

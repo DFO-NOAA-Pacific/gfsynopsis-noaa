@@ -46,7 +46,7 @@ pull_format_gap_specimens <- function(
     "year",
     "sex",
     "length_cm",
-    "age",
+    "age_years",
     "mass_kg"
   )
   return(specimens[, columns_to_keep])

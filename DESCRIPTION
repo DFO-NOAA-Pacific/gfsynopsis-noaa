@@ -21,11 +21,13 @@ Encoding: UTF-8
 Depends:
     R (>= 4.0.0)
 Imports:
-    ggplot2,
+    akfingapdata,
+    cli,
     dplyr,
-    purrr,
+    ggplot2,
     nwfscSurvey,
-    akfingapdata
+    purrr,
+    tidyr
 Suggests:
     testthat,
     knitr,
@@ -33,7 +35,7 @@ Suggests:
 Remotes:
   github::pfmc-assessments/nwfscSurvey
   github::MattCallahan-NOAA/akfingapdata
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
 LazyData: true

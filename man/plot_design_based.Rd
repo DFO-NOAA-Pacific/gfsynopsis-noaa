@@ -4,7 +4,7 @@
 \alias{plot_design_based}
 \title{Plot design-based indices}
 \usage{
-plot_design_based(data, dir = NULL, plot = 1:2, height = 7, width = 7)
+plot_design_based(data, dir = NULL, plot = 1, height = 7, width = 7)
 }
 \arguments{
 \item{data}{Dataframe of design-based indices.}
