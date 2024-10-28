@@ -1,0 +1,12 @@
+name: gfsynopsis-noaa
+title: gfsynopsis-noaa
+username: chantel.wetzel
+account: chantel.wetzel
+server: connect.fisheries.noaa.gov
+hostUrl: https://connect.fisheries.noaa.gov/__api__
+appId: 407
+bundleId: 1650
+url: https://connect.fisheries.noaa.gov/content/4eb1172c-ed47-492f-a855-ed2d909563e1/
+version: 1
+asMultiple: FALSE
+asStatic: TRUE

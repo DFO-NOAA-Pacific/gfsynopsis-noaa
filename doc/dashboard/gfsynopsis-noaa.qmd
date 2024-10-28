@@ -1,0 +1,66 @@
+---
+title: "gfsynopsis-noaa"
+format:
+  dashboard: 
+    orientation: rows
+    scrolling: true
+    nav-buttons: 
+      -icon: github
+      href: https://github.com/DFO-NOAA-Pacific/gfsynopsis-noaa/tree/main
+---
+
+```{r, echo = FALSE}
+library(tidyverse)
+library(gt)
+library(gtsummary)
+library(glue)
+devtools::load_all(here::here())
+
+source(here::here("doc", "to_plot.R"))
+load(here::here("data", "biomass.rda"))
+```
+
+
+# Arrowtooth flounder 
+
+## columns 
+
+```{r}
+#| echo: false
+#| fig-cap: "Estimated design-based biomass."
+plot_design_based(
+    data = biomass[biomass$common_name == "arrowtooth flounder", ],
+    plot = 1)
+
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Standardized design-based estimates by region."
+plot_design_based(
+    data = biomass[biomass$common_name == "arrowtooth flounder", ],
+    plot = 2)
+
+```
+
+## columns
+
+```{r}
+#| echo: false
+#| fig-cap: "Estimated length-mass relationship by region."
+plot_biology(
+    data = specimens[specimens$common_name == "arrowtooth flounder", ],
+    parameters = parameters,
+    plot = 1)
+
+```
+
+```{r}
+#| echo: false
+#| fig-cap: "Estimated age-length relationship by region."
+plot_biology(
+    data = specimens[specimens$common_name == "arrowtooth flounder", ],
+    parameters = parameters,
+    plot = 2)
+
+```
