@@ -23,25 +23,25 @@ plot_design_based <- function(
     plot = 1,
     height = 7,
     width = 7) {
-
-  if (length(plot) == 2){
+  if (length(plot) == 2) {
     cli::cli_inform("Two separate function calls are required to
                     return each plot type.")
   }
 
-  sp <- unique(data[,"common_name"])
+  sp <- unique(data[, "common_name"])
   igroup <- 1
   if (igroup %in% plot) {
     p1 <- ggplot2::ggplot(data = data) +
-      ggplot2::geom_ribbon(ggplot2::aes(x = year, ymin = lwr, ymax = upr), fill = "lightgray")+
+      ggplot2::geom_ribbon(ggplot2::aes(x = year, ymin = lwr, ymax = upr), fill = "lightgray") +
       ggplot2::geom_line(ggplot2::aes(x = year, y = est)) +
       ggplot2::geom_point(ggplot2::aes(x = year, y = est)) +
       ggplot2::ylab("Biomass (mt)") +
       ggplot2::xlab("Year") +
       ggplot2::theme_bw() +
       ggplot2::scale_y_continuous(
-        labels = function(x) format(x, big.mark = ",", scientific = FALSE)) +
-      #ggplot2::ggtitle(sp) +
+        labels = function(x) format(x, big.mark = ",", scientific = FALSE)
+      ) +
+      # ggplot2::ggtitle(sp) +
       ggplot2::facet_wrap("region", scales = "free_y")
   }
 
@@ -56,11 +56,11 @@ plot_design_based <- function(
     p2 <- ggplot2::ggplot(data = data) +
       ggplot2::geom_line(ggplot2::aes(x = year, y = est_stand, color = region)) +
       ggplot2::geom_point(ggplot2::aes(x = year, y = est_stand, color = region)) +
-      ggplot2::geom_hline(yintercept = 1, linetype="dashed", color = "lightgrey") +
+      ggplot2::geom_hline(yintercept = 1, linetype = "dashed", color = "lightgrey") +
       ggplot2::ylab("Standardized Index") +
       ggplot2::xlab("Year") +
       ggplot2::theme_bw() +
-      #ggplot2::ggtitle(sp) +
+      # ggplot2::ggtitle(sp) +
       ggplot2::scale_color_viridis_d()
     p2$labels$colour <- "Region"
   }
@@ -71,14 +71,16 @@ plot_design_based <- function(
         plot = p1,
         filename = file.path(dir, paste0(sp, "-design-based-index.png")),
         height = height,
-        width = width)
+        width = width
+      )
     }
     if (2 %in% plot) {
       ggplot2::ggsave(
         plot = p2,
         filename = file.path(dir, paste0(sp, "-design-based-index-standardized.png")),
         height = height,
-        width = width)
+        width = width
+      )
     }
   }
   if (is.null(dir)) {
