@@ -33,7 +33,7 @@ Suggests:
     knitr,
     rmarkdown
 Remotes:
-  github::pfmc-assessments/nwfscSurvey
+  github::pfmc-assessments/nwfscSurvey,
   github::MattCallahan-NOAA/akfingapdata
 RoxygenNote: 7.3.2
 VignetteBuilder: knitr
