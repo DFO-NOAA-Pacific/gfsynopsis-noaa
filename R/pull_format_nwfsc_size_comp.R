@@ -17,7 +17,6 @@ pull_format_nwfsc_size_comp <- function(
     common_name,
     survey = "NWFSC.Combo",
     comp_type = "length_cm") {
-
   catch <- nwfscSurvey::pull_catch(
     common_name = common_name,
     survey = survey,
@@ -39,18 +38,18 @@ pull_format_nwfsc_size_comp <- function(
   ind <- !is.na(bio[, comp_type])
   min_len <- floor(min(bio[ind, comp_type]))
   max_len <- floor(max(bio[ind, comp_type]))
-  comp_bins <- seq(min_len , max_len, 1)
+  comp_bins <- seq(min_len, max_len, 1)
 
   # Calculate the expanded length comps
   init_sizecomps <- nwfscSurvey::get_expanded_comps(
-      bio_data = bio,
-      catch_data = catch,
-      comp_bins = comp_bins,
-      strata = strata,
-      comp_column_name = comp_type,
-      output = "full_expansion_unformatted",
-      verbose = FALSE
-    ) |>
+    bio_data = bio,
+    catch_data = catch,
+    comp_bins = comp_bins,
+    strata = strata,
+    comp_column_name = comp_type,
+    output = "full_expansion_unformatted",
+    verbose = FALSE
+  ) |>
     tidyr::pivot_longer(
       cols = dplyr::starts_with("total"),
       names_to = c("sex"),
@@ -83,7 +82,7 @@ pull_format_nwfsc_size_comp <- function(
       common_name = unique(catch[, "common_name"]),
       scientific_name = unique(catch[, "scientific_name"])
     )
-  columns_to_keep <-  c(
+  columns_to_keep <- c(
     "science_center",
     "region",
     "area",
@@ -94,7 +93,8 @@ pull_format_nwfsc_size_comp <- function(
     dplyr::if_else(
       comp_type == "length_cm",
       true = "length_cm",
-      false = "age_years"),
+      false = "age_years"
+    ),
     "population_count",
     "total",
     "proportion"

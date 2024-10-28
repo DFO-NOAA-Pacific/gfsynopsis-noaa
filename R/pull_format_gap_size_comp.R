@@ -22,7 +22,6 @@ pull_format_gap_size_comp <- function(
     start_year,
     end_year,
     comp_type = "length_cm") {
-
   survey <- akfingapdata::get_gap_survey_design()
   area <- akfingapdata::get_gap_area()
 
@@ -32,7 +31,8 @@ pull_format_gap_size_comp <- function(
       area_id = area_id,
       species_code = taxa[, "species_code"],
       start_year = start_year,
-      end_year = end_year)
+      end_year = end_year
+    )
 
     gap_sizecomp <- gap_sizecomp |>
       dplyr::filter(length_mm > 0) |>
@@ -48,12 +48,13 @@ pull_format_gap_size_comp <- function(
   }
 
   if (comp_type == "age") {
-    gap_sizecomp <- akfingapdata:: get_gap_agecomp(
+    gap_sizecomp <- akfingapdata::get_gap_agecomp(
       survey_definition_id = survey_definition_id,
       area_id = area_id,
       species_code = taxa[, "species_code"],
       start_year = start_year,
-      end_year = end_year)
+      end_year = end_year
+    )
 
     gap_sizecomp <- gap_sizecomp |>
       dplyr::filter(age > 0) |>
@@ -76,7 +77,7 @@ pull_format_gap_size_comp <- function(
       region = "U.S. Gulf of Alaska",
       area = paste0(survey_definition_id, "-", area_id)
     )
-  columns_to_keep <-  c(
+  columns_to_keep <- c(
     "science_center",
     "region",
     "area",
@@ -87,7 +88,8 @@ pull_format_gap_size_comp <- function(
     dplyr::if_else(
       comp_type == "length_cm",
       true = "length_cm",
-      false = "age"),
+      false = "age"
+    ),
     "population_count",
     "total",
     "proportion"
