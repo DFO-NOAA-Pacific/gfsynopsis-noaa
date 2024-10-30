@@ -19,8 +19,8 @@ load(here::here("data", "biomass.rda"))
 load(here::here("data", "specimens.rda"))
 load(here::here("data", "samples.rda"))
 load(here::here("data", "parameters.rda"))
-#load(here::here("data", "age_comps.rda"))
-#load(here::here("data", "length_comps.rda"))
+# load(here::here("data", "age_comps.rda"))
+# load(here::here("data", "length_comps.rda"))
 ```
 
 ```{r}

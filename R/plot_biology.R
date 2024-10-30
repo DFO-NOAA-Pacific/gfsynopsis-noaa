@@ -86,7 +86,7 @@ plot_biology <- function(
       ggplot2::xlim(xlims[1], xlims[2]) +
       ggplot2::ylim(ylims[1], ylims[2]) +
       ggplot2::theme_bw() +
-      #ggplot2::ggtitle(sp) +
+      # ggplot2::ggtitle(sp) +
       ggplot2::scale_color_manual(name = "Sex", values = colors) +
       ggplot2::scale_fill_manual(name = "Sex", values = colors) +
       ggplot2::guides(color = guide_legend(override.aes = list(alpha = 1))) +
@@ -160,7 +160,7 @@ plot_biology <- function(
       ggplot2::xlim(xlims[1], xlims[2]) +
       ggplot2::ylim(ylims[1], ylims[2]) +
       ggplot2::theme_bw() +
-      #ggplot2::ggtitle(sp) +
+      # ggplot2::ggtitle(sp) +
       ggplot2::scale_color_manual(name = "Sex", values = colors) +
       ggplot2::scale_fill_manual(name = "Sex", values = colors) +
       ggplot2::guides(color = guide_legend(override.aes = list(alpha = 1))) +
