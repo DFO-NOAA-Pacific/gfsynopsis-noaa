@@ -16,8 +16,6 @@ library(gtsummary)
 library(glue)
 library(gfsynopsisnoaa)
 
-source(here::here("doc", "to_plot.R"))
-
 ```
 
 ```{r}
@@ -29,9 +27,10 @@ firstup <- function(x) {
     x
   }
 section_name <- firstup(params$common_name)
-glue::glue(" \n{section_name} \n \n") |> cat( )
+#glue::glue(" \n{section_name} \n \n") |> cat( )
 ```
 
+# `r section_name`
 
 ```{r}
 #| echo: false
