@@ -16,12 +16,11 @@ library(gtsummary)
 library(glue)
 library(gfsynopsisnoaa)
 firstup <- function(x) {
-    substr(x, 1, 1) <- toupper(substr(x, 1, 1))
-    x
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
 }
 
 sp <- "arrowtooth flounder"
-
 ```
 
 # {.sidebar}
@@ -83,10 +82,11 @@ plot_biology(
 #| message: false
 #| label: samples-afsc
 region_table <- "U.S. Gulf of Alaska"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -100,10 +100,9 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
 
 ```{r}
@@ -111,10 +110,11 @@ samples |>
 #| message: false
 #| label: samples-nwfsc
 region_table <- "U.S. West Coast"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -128,8 +128,7 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
