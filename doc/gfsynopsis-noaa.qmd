@@ -1,7 +1,8 @@
 ---
 title: "gfsynopsis-noaa"
-author: "Chantel Wetzel"
 format: html
+params:
+  common_name: "Pacific ocean perch"
 ---
 
 ```{r}
@@ -12,27 +13,80 @@ suppressMessages(library(tidyverse))
 library(gt)
 library(gtsummary)
 library(glue)
-devtools::load_all(here::here())
+library(gfsynopsisnoaa)
 
 source(here::here("doc", "to_plot.R"))
-load(here::here("data", "biomass.rda"))
-load(here::here("data", "specimens.rda"))
-load(here::here("data", "samples.rda"))
-load(here::here("data", "parameters.rda"))
-# load(here::here("data", "age_comps.rda"))
-# load(here::here("data", "length_comps.rda"))
+
 ```
 
 ```{r}
 #| echo: false
 #| message: false
-sp <- sort(unique(biomass$common_name))
-for (a in sp) {
-  to_plot(
-    common_name = a,
-    biomass = biomass,
-    specimens = specimens,
-    parameters = parameters
+#| label: section-name
+firstup <- function(x) {
+    substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+    x
+  }
+section_name <- firstup(params$common_name)
+glue::glue(" \n{section_name} \n \n") |> cat( )
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| label: biomass
+filtered_biomass <- biomass |> dplyr::filter(common_name == params$common_name)
+bio_plot <- plot_design_based(
+    data = filtered_biomass,
+    plot = 1)
+suppressWarnings(print(bio_plot))
+
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| label: biology
+filtered_specimens <- specimens |> dplyr::filter(common_name == params$common_name)
+mass_length <- plot_biology(
+  data = filtered_specimens,
+  parameters = parameters,
+  plot = 1)
+
+length_age <- plot_biology(
+  data = filtered_specimens,
+  parameters = parameters,
+  plot = 2)
+
+suppressWarnings(print(mass_length))
+suppressWarnings(print(length_age))
+
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| label: samples
+samples |> 
+  dplyr::filter(common_name == params$common_name) |>
+  dplyr::select(-common_name) |>
+  dplyr::rename(
+    Region = region,
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt(groupname_col = "Region") |>  
+  gt::tab_header(
+    title = "Biological samples by year and region"
+  ) |>
+  gt::fmt_number(
+    columns = 3:5,
+    decimals = 0, 
+    sep_mark = ","
   )
-}
+   
 ```
