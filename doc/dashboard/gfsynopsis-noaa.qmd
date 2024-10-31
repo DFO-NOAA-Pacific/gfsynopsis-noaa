@@ -29,18 +29,18 @@ load(here::here("data", "biomass.rda"))
 #| echo: false
 #| fig-cap: "Estimated design-based biomass."
 plot_design_based(
-    data = biomass[biomass$common_name == "arrowtooth flounder", ],
-    plot = 1)
-
+  data = biomass[biomass$common_name == "arrowtooth flounder", ],
+  plot = 1
+)
 ```
 
 ```{r}
 #| echo: false
 #| fig-cap: "Standardized design-based estimates by region."
 plot_design_based(
-    data = biomass[biomass$common_name == "arrowtooth flounder", ],
-    plot = 2)
-
+  data = biomass[biomass$common_name == "arrowtooth flounder", ],
+  plot = 2
+)
 ```
 
 ## columns
@@ -49,18 +49,18 @@ plot_design_based(
 #| echo: false
 #| fig-cap: "Estimated length-mass relationship by region."
 plot_biology(
-    data = specimens[specimens$common_name == "arrowtooth flounder", ],
-    parameters = parameters,
-    plot = 1)
-
+  data = specimens[specimens$common_name == "arrowtooth flounder", ],
+  parameters = parameters,
+  plot = 1
+)
 ```
 
 ```{r}
 #| echo: false
 #| fig-cap: "Estimated age-length relationship by region."
 plot_biology(
-    data = specimens[specimens$common_name == "arrowtooth flounder", ],
-    parameters = parameters,
-    plot = 2)
-
+  data = specimens[specimens$common_name == "arrowtooth flounder", ],
+  parameters = parameters,
+  plot = 2
+)
 ```
