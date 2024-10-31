@@ -3,7 +3,7 @@ title: "gfsynopsis-noaa"
 format:
   dashboard: 
     orientation: rows
-    scrolling: true
+    #scrolling: true
     nav-buttons: 
       -icon: github
       href: https://github.com/DFO-NOAA-Pacific/gfsynopsis-noaa/tree/main
@@ -14,31 +14,64 @@ library(tidyverse)
 library(gt)
 library(gtsummary)
 library(glue)
-devtools::load_all(here::here())
+library(gfsynopsisnoaa)
+firstup <- function(x) {
+    substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+    x
+}
 
-source(here::here("doc", "to_plot.R"))
-load(here::here("data", "biomass.rda"))
+sp <- "arrowtooth flounder"
+
 ```
 
+# {.sidebar}
 
-# Arrowtooth flounder 
+Shiny can be used to create drop downs to select columns within your data.
+
+# `r firstup(sp)`
 
 ## columns 
 
 ```{r}
 #| echo: false
-#| fig-cap: "Estimated design-based biomass."
+#| scrolling: true
+#| title: Design-based biomass
 plot_design_based(
-  data = biomass[biomass$common_name == "arrowtooth flounder", ],
+  data = biomass[biomass$common_name == sp, ],
+  plot = 1
+)
+```
+
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 2
+)
+```
+
+
+## columns
+
+```{r}
+#| echo: false
+#| title: "Estimated length-mass relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
   plot = 1
 )
 ```
 
 ```{r}
 #| echo: false
-#| fig-cap: "Standardized design-based estimates by region."
-plot_design_based(
-  data = biomass[biomass$common_name == "arrowtooth flounder", ],
+#| title: "Estimated age-length relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
   plot = 2
 )
 ```
@@ -47,20 +80,56 @@ plot_design_based(
 
 ```{r}
 #| echo: false
-#| fig-cap: "Estimated length-mass relationship by region."
-plot_biology(
-  data = specimens[specimens$common_name == "arrowtooth flounder", ],
-  parameters = parameters,
-  plot = 1
-)
+#| message: false
+#| label: samples-afsc
+region_table <- "U.S. Gulf of Alaska"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
 ```
 
 ```{r}
 #| echo: false
-#| fig-cap: "Estimated age-length relationship by region."
-plot_biology(
-  data = specimens[specimens$common_name == "arrowtooth flounder", ],
-  parameters = parameters,
-  plot = 2
-)
+#| message: false
+#| label: samples-nwfsc
+region_table <- "U.S. West Coast"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
 ```
