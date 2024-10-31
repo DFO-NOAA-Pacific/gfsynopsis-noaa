@@ -1,6 +1,7 @@
 ---
 title: "gfsynopsis-noaa"
-format: html
+format: 
+  html
 params:
   common_name: "Pacific ocean perch"
 ---

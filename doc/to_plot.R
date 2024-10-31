@@ -1,5 +1,4 @@
 to_plot <- function(
-  common_name,
   biomass,
   specimens,
   parameters,
@@ -10,21 +9,21 @@ to_plot <- function(
     x
   }
 
-  section_name <- firstup(common_name)
+  section_name <- firstup(unique(biomass$common_name))
   glue::glue(" \n{section_name} \n \n") |> cat( )
   #glue::glue(" \n# {section_name} {{-}}\n \n") |> cat( )
 
   bio_plot <- plot_design_based(
-    data = biomass[biomass$common_name == common_name, ],
+    data = biomass,
     plot = 1)
 
   mass_length <- plot_biology(
-    data = specimens[specimens$common_name == common_name, ],
+    data = specimens,
     parameters = parameters,
     plot = 1)
 
   length_age <- plot_biology(
-    data = specimens[specimens$common_name == common_name, ],
+    data = specimens,
     parameters = parameters,
     plot = 2)
 
