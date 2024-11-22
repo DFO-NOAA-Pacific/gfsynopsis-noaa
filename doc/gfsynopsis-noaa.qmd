@@ -15,7 +15,6 @@ library(gt)
 library(gtsummary)
 library(glue)
 library(gfsynopsisnoaa)
-
 ```
 
 ```{r}
@@ -23,11 +22,11 @@ library(gfsynopsisnoaa)
 #| message: false
 #| label: section-name
 firstup <- function(x) {
-    substr(x, 1, 1) <- toupper(substr(x, 1, 1))
-    x
-  }
+  substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+  x
+}
 section_name <- firstup(params$common_name)
-#glue::glue(" \n{section_name} \n \n") |> cat( )
+# glue::glue(" \n{section_name} \n \n") |> cat( )
 ```
 
 # `r section_name`
@@ -38,10 +37,10 @@ section_name <- firstup(params$common_name)
 #| label: biomass
 filtered_biomass <- biomass |> dplyr::filter(common_name == params$common_name)
 bio_plot <- plot_design_based(
-    data = filtered_biomass,
-    plot = 1)
+  data = filtered_biomass,
+  plot = 1
+)
 suppressWarnings(print(bio_plot))
-
 ```
 
 ```{r}
@@ -52,16 +51,17 @@ filtered_specimens <- specimens |> dplyr::filter(common_name == params$common_na
 mass_length <- plot_biology(
   data = filtered_specimens,
   parameters = parameters,
-  plot = 1)
+  plot = 1
+)
 
 length_age <- plot_biology(
   data = filtered_specimens,
   parameters = parameters,
-  plot = 2)
+  plot = 2
+)
 
 suppressWarnings(print(mass_length))
 suppressWarnings(print(length_age))
-
 ```
 
 
@@ -69,7 +69,7 @@ suppressWarnings(print(length_age))
 #| echo: false
 #| message: false
 #| label: samples
-samples |> 
+samples |>
   dplyr::filter(common_name == params$common_name) |>
   dplyr::select(-common_name) |>
   dplyr::rename(
@@ -79,14 +79,13 @@ samples |>
     Age = age,
     Mass = mass
   ) |>
-  gt(groupname_col = "Region") |>  
+  gt(groupname_col = "Region") |>
   gt::tab_header(
     title = "Biological samples by year and region"
   ) |>
   gt::fmt_number(
     columns = 3:5,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
