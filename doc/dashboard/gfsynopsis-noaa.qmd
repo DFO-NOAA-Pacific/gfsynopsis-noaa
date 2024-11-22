@@ -193,10 +193,11 @@ plot_biology(
 #| message: false
 #| label: dover-samples-afsc
 region_table <- "U.S. Gulf of Alaska"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -210,10 +211,9 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
 
 ```{r}
@@ -221,10 +221,11 @@ samples |>
 #| message: false
 #| label: dover-samples-nwfsc
 region_table <- "U.S. West Coast"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -238,10 +239,9 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
 
 
@@ -304,10 +304,11 @@ plot_biology(
 #| message: false
 #| label: pop-samples-afsc
 region_table <- "U.S. Gulf of Alaska"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -321,10 +322,9 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
 
 ```{r}
@@ -332,10 +332,11 @@ samples |>
 #| message: false
 #| label: pop-samples-nwfsc
 region_table <- "U.S. West Coast"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -349,10 +350,9 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
 
 
@@ -416,10 +416,11 @@ plot_biology(
 #| message: false
 #| label: sablefish-samples-afsc
 region_table <- "U.S. Gulf of Alaska"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -433,10 +434,9 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
 
 ```{r}
@@ -444,10 +444,11 @@ samples |>
 #| message: false
 #| label: sablefish-samples-nwfsc
 region_table <- "U.S. West Coast"
-samples |> 
+samples |>
   dplyr::filter(
     common_name == sp,
-    region == region_table) |>
+    region == region_table
+  ) |>
   dplyr::select(-common_name, -region) |>
   dplyr::rename(
     Year = year,
@@ -461,8 +462,7 @@ samples |>
   ) |>
   gt::fmt_number(
     columns = 2:4,
-    decimals = 0, 
+    decimals = 0,
     sep_mark = ","
   )
-   
 ```
