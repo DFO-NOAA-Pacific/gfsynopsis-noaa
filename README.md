@@ -10,6 +10,10 @@ You can install {gfsynopsis-noaa} from [GitHub](https://github.com/) with
 pak::pkg_install("DFO-NOAA-Pacfin/gfsynopsis-noaa")
 ```
 
+## Website
+
+Data visualizations can be found at https://connect.fisheries.noaa.gov/gfsynopsis-noaa/. This website is in development and may contain bugs or issues in the data that are currently being worked on. Any questions or concerns should be communicated via [issues](https://github.com/DFO-NOAA-Pacific/gfsynopsis-noaa/issues).
+
 ## Workflow
 
 ### File structure
