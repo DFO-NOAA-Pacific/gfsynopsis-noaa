@@ -132,3 +132,337 @@ samples |>
     sep_mark = ","
   )
 ```
+
+
+```{r, echo = FALSE}
+sp <- "Dover sole"
+```
+
+# `r firstup(sp)`
+
+## columns 
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 1
+)
+```
+
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 2
+)
+```
+
+
+## columns
+
+```{r}
+#| echo: false
+#| title: "Estimated length-mass relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
+  plot = 1
+)
+```
+
+```{r}
+#| echo: false
+#| title: "Estimated age-length relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
+  plot = 2
+)
+```
+
+## columns
+
+```{r}
+#| echo: false
+#| message: false
+#| label: dover-samples-afsc
+region_table <- "U.S. Gulf of Alaska"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| label: dover-samples-nwfsc
+region_table <- "U.S. West Coast"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
+```
+
+
+```{r, echo = FALSE}
+sp <- "Pacific ocean perch"
+```
+
+# `r firstup(sp)`
+
+## columns 
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 1
+)
+```
+
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 2
+)
+```
+
+
+## columns
+
+```{r}
+#| echo: false
+#| title: "Estimated length-mass relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
+  plot = 1
+)
+```
+
+```{r}
+#| echo: false
+#| title: "Estimated age-length relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
+  plot = 2
+)
+```
+
+## columns
+
+```{r}
+#| echo: false
+#| message: false
+#| label: pop-samples-afsc
+region_table <- "U.S. Gulf of Alaska"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| label: pop-samples-nwfsc
+region_table <- "U.S. West Coast"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
+```
+
+
+
+```{r, echo = FALSE}
+sp <- "sablefish"
+```
+
+# `r firstup(sp)`
+
+## columns 
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 1
+)
+```
+
+
+```{r}
+#| echo: false
+#| scrolling: true
+#| title: Design-based biomass
+plot_design_based(
+  data = biomass[biomass$common_name == sp, ],
+  plot = 2
+)
+```
+
+
+## columns
+
+```{r}
+#| echo: false
+#| title: "Estimated length-mass relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
+  plot = 1
+)
+```
+
+```{r}
+#| echo: false
+#| title: "Estimated age-length relationship by region."
+plot_biology(
+  data = specimens[specimens$common_name == sp, ],
+  parameters = parameters,
+  plot = 2
+)
+```
+
+## columns
+
+```{r}
+#| echo: false
+#| message: false
+#| label: sablefish-samples-afsc
+region_table <- "U.S. Gulf of Alaska"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| label: sablefish-samples-nwfsc
+region_table <- "U.S. West Coast"
+samples |> 
+  dplyr::filter(
+    common_name == sp,
+    region == region_table) |>
+  dplyr::select(-common_name, -region) |>
+  dplyr::rename(
+    Year = year,
+    Length = length,
+    Age = age,
+    Mass = mass
+  ) |>
+  gt::gt() |>
+  gt::tab_header(
+    title = glue::glue("Biological samples by year collected in {region_table}")
+  ) |>
+  gt::fmt_number(
+    columns = 2:4,
+    decimals = 0, 
+    sep_mark = ","
+  )
+   
+```
