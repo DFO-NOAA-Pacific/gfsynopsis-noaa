@@ -2,23 +2,22 @@
 devtools::load_all(here::here())
 # Load the required libraries
 library(akfingapdata)
-library(tidyverse)
 library(keyring)
 
 source(here::here("data-raw", "get-species.R"))
 
-#===============================================================================
+# ===============================================================================
 # Pull and calculate the design-based biomass estimates for the U.S. West Coast.
-#===============================================================================
+# ===============================================================================
 get_ests_nwfsc <- purrr::pmap(
   .l = list(common_name = spp_list, survey = "NWFSC.Combo"),
   .f = pull_format_nwfsc_biomass
-  )
+)
 nwfsc_biomass <- get_ests_nwfsc |> purrr::list_rbind()
 
-#===============================================================================
+# ===============================================================================
 # Pull the design-based biomass estimates for Alaska
-#===============================================================================
+# ===============================================================================
 
 token <- akfingapdata::create_token(here::here("wetzel_akfin_api_string.txt"))
 afsc_species_survey <- get_afsc_species_survey(spp_list = spp_list)

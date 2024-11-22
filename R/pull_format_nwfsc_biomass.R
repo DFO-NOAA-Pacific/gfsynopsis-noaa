@@ -7,18 +7,17 @@
 #' @author Chantel Wetzel
 #'
 #' @import nwfscSurvey
-#' @import ggplot2
 #' @import dplyr
 #' @export
 #'
 pull_format_nwfsc_biomass <- function(
     common_name,
     survey = "NWFSC.Combo") {
-
   catch <- nwfscSurvey::pull_catch(
     common_name = common_name,
     survey = survey,
-    convert = FALSE
+    convert = FALSE,
+    verbose = FALSE
   )
 
   # Define the strata for expansion
@@ -46,7 +45,7 @@ pull_format_nwfsc_biomass <- function(
       upr = biomass.upr
     )
 
-  columns_to_keep <-  c(
+  columns_to_keep <- c(
     "science_center",
     "region",
     "area",

@@ -1,39 +1,39 @@
-Package: gfsynopsisnoaa
 Type: Package
-Title: Combine Catch and Biological Data from Northeast Pacific Ocean Fish Surveys and Create Data Comparisons
+Package: gfsynopsisnoaa
+Title: Combine Catch and Biological Data from Northeast Pacific Ocean Fish
+    Surveys and Create Data Comparisons
 Version: 0.0.1
 Authors@R: c(
-    person(given = c("Chantel","R."), family = "Wetzel", email = "chantel.wetzel@noaa.gov", 
-      role = c("aut", "cre")),
-    person(given = c("Eric", "J."), family = "Ward", email = "eric.ward@noaa.gov",
-      role = c("aut")),
-    person(given = c("Lewis", "A.", "K."), family = "Barnett", email = "lewis.barnett@noaa.gov",
-      role = c("aut")),      
-    person(given = c("Bridget", "E."), family = "Ferriss", email = "bridget.ferriss@noaa.gov",
-      role = c("aut")),    
-    person(given = c("Kelli", "F."), family = "Johnson", email = "kelli.johnson@noaa.gov", 
-      role = c("aut"))
-    )
+    person(c("Chantel", "R."), "Wetzel", , "chantel.wetzel@noaa.gov", role = c("aut", "cre")),
+    person(c("Eric", "J."), "Ward", , "eric.ward@noaa.gov", role = "aut"),
+    person(c("Lewis", "A.", "K."), "Barnett", , "lewis.barnett@noaa.gov", role = "aut"),
+    person(c("Bridget", "E."), "Ferriss", , "bridget.ferriss@noaa.gov", role = "aut"),
+    person(c("Kelli", "F."), "Johnson", , "kelli.johnson@noaa.gov", role = "aut")
+  )
 Maintainer: Chantel Wetzel <chantel.wetzel@noaa.gov>
-Description: This package combines catch and biological data from fish surveys in multiple regions and create visual data comparisons.
+Description: This package combines catch and biological data from fish
+    surveys in multiple regions and create visual data comparisons.
 License: GPL-3
-Encoding: UTF-8
 Depends:
     R (>= 4.0.0)
 Imports:
-    ggplot2,
+    akfingapdata,
+    cli,
     dplyr,
-    purrr,
+    ggplot2,
     nwfscSurvey,
-    akfingapdata
+    purrr,
+    tidyr
 Suggests:
-    testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
 Remotes:
-  github::pfmc-assessments/nwfscSurvey
-  github::MattCallahan-NOAA/akfingapdata
-RoxygenNote: 7.3.1
-VignetteBuilder: knitr
-Roxygen: list(markdown = TRUE)
+    github::MattCallahan-NOAA/akfingapdata,
+    github::pfmc-assessments/nwfscSurvey
+Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2

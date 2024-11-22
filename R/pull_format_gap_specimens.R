@@ -19,12 +19,12 @@ pull_format_gap_specimens <- function(
     taxa,
     start_year,
     end_year) {
-
   specimens <- akfingapdata::get_gap_specimen(
     survey_definition_id = survey_definition_id,
     species_code = taxa[, "species_code"],
     start_year = start_year,
-    end_year = end_year) |>
+    end_year = end_year
+  ) |>
     dplyr::mutate(
       sex = factor(case_match(sex, 1 ~ "Male", 2 ~ "Female", 3 ~ "Unsexed"), levels = c("Male", "Female", "Unsexed")),
       length_cm = length_mm / 10,
@@ -33,11 +33,12 @@ pull_format_gap_specimens <- function(
       scientific_name = taxa[, "species_name"],
       science_center = "AFSC",
       region = "U.S. Gulf of Alaska",
-      survey = survey_definition_id)
+      survey = survey_definition_id
+    )
 
   # Need to inquire about specimen_subsample_method, specimen_sample_type, and age_determination_method
 
-  columns_to_keep <-  c(
+  columns_to_keep <- c(
     "science_center",
     "region",
     "survey",
@@ -46,7 +47,7 @@ pull_format_gap_specimens <- function(
     "year",
     "sex",
     "length_cm",
-    "age",
+    "age_years",
     "mass_kg"
   )
   return(specimens[, columns_to_keep])

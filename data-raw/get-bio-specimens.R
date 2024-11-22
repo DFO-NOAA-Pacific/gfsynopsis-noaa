@@ -2,23 +2,22 @@
 devtools::load_all(here::here())
 # Load the required libraries
 library(akfingapdata)
-library(tidyverse)
 library(keyring)
 
 source(here::here("data-raw", "get-species.R"))
 
-#===============================================================================
+# ===============================================================================
 # Pull biological specimens for the U.S. West Coast.
-#===============================================================================
+# ===============================================================================
 get_specimens_nwfsc <- purrr::pmap(
   .l = list(common_name = spp_list, survey = "NWFSC.Combo"),
   .f = pull_format_nwfsc_specimens
 )
 nwfsc_specimens <- get_specimens_nwfsc |> purrr::list_rbind()
 
-#===============================================================================
+# ===============================================================================
 # Pull biological specimens for Alaska
-#===============================================================================
+# ===============================================================================
 
 token <- akfingapdata::create_token(here::here("wetzel_akfin_api_string.txt"))
 afsc_species_survey <- get_afsc_species_survey(spp_list = spp_list)
@@ -41,9 +40,9 @@ specimens <- rbind(nwfsc_specimens, afsc_specimens)
 specimens <- as.data.frame(specimens)
 usethis::use_data(specimens, overwrite = TRUE)
 
-#===========================================================
+# ===========================================================
 # Calculate sample number by year
-#===========================================================
+# ===========================================================
 
 samples <- specimens |>
   dplyr::group_by(region, common_name, year) |>
@@ -55,9 +54,9 @@ samples <- specimens |>
   data.frame()
 usethis::use_data(samples, overwrite = TRUE)
 
-#===========================================================
+# ===========================================================
 # Estimate biological parameters by species and region
-#===========================================================
+# ===========================================================
 parameters <- list()
 
 mass_length <- specimens |>
@@ -66,16 +65,17 @@ mass_length <- specimens |>
     !is.na(mass_kg),
     mass_kg > 0,
     !is.na(length_cm),
-    length_cm > 0) |>
+    length_cm > 0
+  ) |>
   dplyr::group_by(region, common_name) |>
   dplyr::group_modify(~ .x |>
-  dplyr::reframe(
-    vals = nwfscSurvey::estimate_weight_length(
-      data = .x,
-      col_length = "length_cm",
-      col_weight = "mass_kg"
-    )
-  )) |>
+    dplyr::reframe(
+      vals = nwfscSurvey::estimate_weight_length(
+        data = .x,
+        col_length = "length_cm",
+        col_weight = "mass_kg"
+      )
+    )) |>
   dplyr::ungroup() |>
   tidyr::unnest(cols = c(vals)) |>
   dplyr::mutate(
@@ -99,12 +99,12 @@ init_growth <- specimens |>
   ) |>
   dplyr::group_by(region, common_name) |>
   dplyr::group_modify(~ .x |>
-     dplyr::reframe(
-       vals = nwfscSurvey::est_growth(
-         dat = .x,
-         return_df = FALSE
-       )[c("female_growth", "male_growth")]
-  ))
+    dplyr::reframe(
+      vals = nwfscSurvey::est_growth(
+        dat = .x,
+        return_df = FALSE
+      )[c("female_growth", "male_growth")]
+    ))
 
 # growth_f <- specimens |>
 #  dplyr::filter(
@@ -121,15 +121,16 @@ init_growth <- specimens |>
 #    ))))
 #  )
 growth <- NULL
-for (s in 1:length(spp_list)){
+for (s in 1:length(spp_list)) {
   g <- matrix(
     data = unlist(init_growth[init_growth$common_name == spp_list[[s]], ]$vals),
     nrow = 4,
     ncol = 5,
-    byrow = TRUE)
+    byrow = TRUE
+  )
   a <- init_growth[init_growth$common_name == spp_list[[s]], c("region", "common_name")]
-  s <- matrix(rep(c("Female", "Male"),2), 4, 1)
-  growth<- rbind(growth, cbind(a, s, g))
+  s <- matrix(rep(c("Female", "Male"), 2), 4, 1)
+  growth <- rbind(growth, cbind(a, s, g))
 }
 growth <- as.data.frame(growth)
 colnames(growth) <- c("region", "common_name", "sex", "k", "Linf", "L0", "CV1", "CV2")

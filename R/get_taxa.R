@@ -4,6 +4,7 @@
 #'
 #' @author Chantel Wetzel
 #' @import akfingapdata
+#' @import dplyr
 #' @export
 #'
 get_taxa <- function(spp_list) {
