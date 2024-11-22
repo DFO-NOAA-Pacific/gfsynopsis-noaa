@@ -62,9 +62,43 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
+<p>You can install {gfsynopsis-noaa} from <a href="https://github.com/" class="external-link">GitHub</a> with</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"DFO-NOAA-Pacific/gfsynopsis-noaa"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pkg_install.html" class="external-link">pkg_install</a></span><span class="op">(</span><span class="st">"DFO-NOAA-Pacfin/gfsynopsis-noaa"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="workflow">Workflow<a class="anchor" aria-label="anchor" href="#workflow"></a>
+</h2>
+<div class="section level3">
+<h3 id="file-structure">File structure<a class="anchor" aria-label="anchor" href="#file-structure"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">├───.github</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">│</span>   └───workflows</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">├───data</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">├───data-raw</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="ex">├───doc</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="ex">│</span>   └───dashboard</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="ex">├───man</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="ex">├───R</span></span></code></pre></div>
+<p>Where</p>
+<ul>
+<li>data is processed data included in the package via .R scripts in the data-raw folder;</li>
+<li>data-raw is for .R scripts used to transform the raw data from each Science Center into a unified data frame that is saved in data;</li>
+<li>doc
+<ul>
+<li>dashboard contains files for the website;</li>
+</ul>
+</li>
+<li>man stores .Rd files; and</li>
+<li>R stores .R scripts that are loaded when building the package, this means functions only</li>
+</ul>
+</div>
+</div>
+<div class="section level2">
+<h2 id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
+</h2>
+<p>This repository is a scientific product and is not official communication of the National Oceanic and Atmospheric Administration or the United States Department of Commerce. All NOAA GitHub project code is provided on an ‘as is’ basis, and the user assumes responsibility for its use. Any claims against the Department of Commerce or Department of Commerce bureaus stemming from the use of this GitHub project will be governed by all applicable Federal laws. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise does not constitute or imply their endorsement, recommendation, or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.</p>
 </div>
 </div>
   </div>
