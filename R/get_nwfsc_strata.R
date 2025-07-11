@@ -20,6 +20,42 @@ get_nwfsc_strata <- function(
       lats.north = c(49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5)
     )
   }
+  if (strata == "strata cw 549") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shallow_sca", "shelf_wa", "shelf_or", "shelf_nca", "shelf_sca"),
+      depths.shallow = c(55, 55, 55, 55, 183, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 183, 549, 549, 549, 549),
+      lats.south = c(46.0, 42.0, 34.5, 32.0, 46.0, 42.0, 34.5, 32.0),
+      lats.north = c(49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5)
+    )
+  }
+  if (strata == "strata cw 350") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shallow_sca", "shelf_wa", "shelf_or", "shelf_nca", "shelf_sca"),
+      depths.shallow = c(55, 55, 55, 55, 183, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 183, 350, 350, 350, 350),
+      lats.south = c(46.0, 42.0, 34.5, 32.0, 46.0, 42.0, 34.5, 32.0),
+      lats.north = c(49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5)
+    )
+  }
+  if (strata == "strata cw 400") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shallow_sca", "shelf_wa", "shelf_or", "shelf_nca", "shelf_sca"),
+      depths.shallow = c(55, 55, 55, 55, 183, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 183, 350, 400, 400, 400),
+      lats.south = c(46.0, 42.0, 34.5, 32.0, 46.0, 42.0, 34.5, 32.0),
+      lats.north = c(49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5)
+    )
+  }
+  if (strata == "strata cw 450") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shallow_sca", "shelf_wa", "shelf_or", "shelf_nca", "shelf_sca"),
+      depths.shallow = c(55, 55, 55, 55, 183, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 183, 350, 450, 450, 450),
+      lats.south = c(46.0, 42.0, 34.5, 32.0, 46.0, 42.0, 34.5, 32.0),
+      lats.north = c(49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5)
+    )
+  }
   if (strata == "strata cw deep") {
     strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
       names = c("shallow_wa", "shallow_or", "shallow_nca", "shallow_sca", "shelf_wa", "shelf_or", "shelf_nca", "shelf_sca", "slope_wa", "slope_or", "slope_nca", "slope_sca"),
@@ -27,6 +63,24 @@ get_nwfsc_strata <- function(
       depths.deep = c(183, 183, 183, 183, 549, 549, 549, 549, 1280, 1280, 1280, 1280),
       lats.south = c(46.0, 42.0, 34.5, 32.0, 46.0, 42.0, 34.5, 32.0, 46.0, 42.0, 34.5, 32.0),
       lats.north = c(49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5, 49.0, 46.0, 42.0, 34.5)
+    )
+  }
+  if (strata == "strata cw 250") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shelf_wa", "shelf_or", "shelf_nca"),
+      depths.shallow = c(55, 55, 55, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 250, 250, 250),
+      lats.south = c(46.0, 42.0, 34.5, 46.0, 42.0, 34.5),
+      lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
+    )
+  }
+  if (strata == "strata cw 183") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca"),
+      depths.shallow = c(55, 55, 55),
+      depths.deep = c(183, 183, 183),
+      lats.south = c(46.0, 42.0, 34.5),
+      lats.north = c(49.0, 46.0, 42.0)
     )
   }
   if (strata == "strata 40.17-49") {
@@ -38,11 +92,38 @@ get_nwfsc_strata <- function(
       lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
     )
   }
+  if (strata == "strata 40.17-49 250") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shelf_wa", "shelf_or", "shelf_nca"),
+      depths.shallow = c(55, 55, 55, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 250, 250, 250),
+      lats.south = c(46.0, 42.0, 40.166667, 46.0, 42.0, 40.166667),
+      lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
+    )
+  }
+  if (strata == "strata 40.17-49 250") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shelf_wa", "shelf_or", "shelf_nca"),
+      depths.shallow = c(55, 55, 55, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 250, 250, 250),
+      lats.south = c(46.0, 42.0, 40.166667, 46.0, 42.0, 40.166667),
+      lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
+    )
+  }
   if (strata == "strata 34.5-49") {
     strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
       names = c("shallow_wa", "shallow_or", "shallow_nca", "shelf_wa", "shelf_or", "shelf_nca"),
       depths.shallow = c(55, 55, 55, 183, 183, 183),
       depths.deep = c(183, 183, 183, 549, 549, 549),
+      lats.south = c(46.0, 42.0, 34.5, 46.0, 42.0, 34.5),
+      lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
+    )
+  }
+  if (strata == "strata 34.5-49 250") {
+    strata_to_use <- nwfscSurvey::CreateStrataDF.fn(
+      names = c("shallow_wa", "shallow_or", "shallow_nca", "shelf_wa", "shelf_or", "shelf_nca"),
+      depths.shallow = c(55, 55, 55, 183, 183, 183),
+      depths.deep = c(183, 183, 183, 250, 250, 250),
       lats.south = c(46.0, 42.0, 34.5, 46.0, 42.0, 34.5),
       lats.north = c(49.0, 46.0, 42.0, 49.0, 46.0, 42.0)
     )
