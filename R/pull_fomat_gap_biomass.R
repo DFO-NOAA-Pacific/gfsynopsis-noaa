@@ -44,28 +44,31 @@ pull_format_gap_biomass <- function(
     end_year = end_year
   )
 
-  gap_biomass$common_name <- taxa[, "common_name"]
-  gap_biomass$scientific_name <- taxa[, "species_name"]
-
-  biomass <- gap_biomass |>
-    dplyr::mutate(
-      science_center = "AFSC",
-      region = "U.S. Gulf of Alaska",
-      area = paste0(survey_definition_id, "-", area_id),
-      est = biomass_mt,
-      lwr = biomass_mt - sqrt(biomass_var),
-      upr = biomass_mt + sqrt(biomass_var)
+  if (length(gap_biomass) > 0) {
+    gap_biomass$common_name <- taxa[, "common_name"]
+    gap_biomass$scientific_name <- taxa[, "species_name"]
+    
+    biomass <- gap_biomass |>
+      dplyr::mutate(
+        science_center = "AFSC",
+        region = "U.S. Gulf of Alaska",
+        area = paste0(survey_definition_id, "-", area_id),
+        est = biomass_mt,
+        lwr = biomass_mt - sqrt(biomass_var),
+        upr = biomass_mt + sqrt(biomass_var)
+      )
+    columns_to_keep <- c(
+      "science_center",
+      "region",
+      "area",
+      "common_name",
+      "scientific_name",
+      "year",
+      "est",
+      "lwr",
+      "upr"
     )
-  columns_to_keep <- c(
-    "science_center",
-    "region",
-    "area",
-    "common_name",
-    "scientific_name",
-    "year",
-    "est",
-    "lwr",
-    "upr"
-  )
-  return(biomass[, columns_to_keep])
+    return(biomass[, columns_to_keep])
+  }
+  
 }
