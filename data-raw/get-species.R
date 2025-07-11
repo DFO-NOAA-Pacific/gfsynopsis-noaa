@@ -4,8 +4,34 @@
 # get_nwfsc_strata().
 
 spp_list <- list(
-  "Pacific ocean perch",
-  "Dover sole",
+  "Alaska plaice",
+  "Atka mackerel",
   "arrowtooth flounder",
-  "sablefish"
+  "Dover sole",
+  "English sole",
+  "flathead sole",
+  "giant grenadier",
+  "Kamchatka flounder",
+  "northern rock sole",
+  "northern rockfish",
+  "Pacific cod",
+  "Pacific hake", 
+  "Pacific halibut",
+  "Pacific herring",
+  "Pacific ocean perch",
+  "Pacific sanddab",
+  "skate unid.",
+  "spiny dogfish", 
+  "rex sole",
+  "southern rock sole", 
+  "sablefish",
+  "sharpchin rockfish",
+  "shortraker rockfish",
+  "shortspine thornyhead",
+  "splitnose rockfish",
+  "spotted ratfish",
+  "starry flounder",
+  "walleye pollock",
+  "yellowfin sole",
+  "yellowtail rockfish"
 )
