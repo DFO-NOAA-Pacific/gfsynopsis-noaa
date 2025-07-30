@@ -13,16 +13,32 @@
 pull_format_nwfsc_biomass <- function(
     common_name,
     survey = "NWFSC.Combo") {
-  catch <- nwfscSurvey::pull_catch(
-    common_name = common_name,
-    survey = survey,
-    convert = FALSE,
-    verbose = FALSE
-  )
+  print(common_name)
+  if (common_name != "Pacific hake") {
+    catch <- nwfscSurvey::pull_catch(
+      common_name = common_name,
+      survey = survey,
+      convert = FALSE,
+      verbose = FALSE
+    )
+  } else {
+    catch <- nwfscSurvey::pull_catch(
+      common_name = common_name,
+      survey = survey,
+      convert = FALSE,
+      verbose = FALSE,
+      sample_types = c("NA", NA, "Life Stage", "Size")
+    )
+    catch <- nwfscSurvey::combine_tows(
+      data = catch
+    )
+    catch$common_name <- "Pacific hake"
+    catch$scientific_name <- "Merluccius productus"
+  }
 
   # Define the strata for expansion
   strata <- get_nwfsc_strata(common_name = common_name)
-
+  print(strata)
   # Calculate the design-based index
   nwfsc_biomass <- nwfscSurvey::get_design_based(
     data = catch,

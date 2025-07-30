@@ -11,7 +11,7 @@ nwfsc_strata_by_species <- function() {
     c("sablefish", "strata cw deep"),
     c("English sole", "strata cw 350"),
     c("flathead sole", "strata cw 350"),
-    c("giant grenadier", "strata cw deep"),
+    c("giant grenadier", "strata cw deep 375-1280"),
     c("Pacific cod", "strata 40.17-49 250"),
     c("Pacific hake", "strata cw 549"),
     c("Pacific halibut", "strata cw 400"),
