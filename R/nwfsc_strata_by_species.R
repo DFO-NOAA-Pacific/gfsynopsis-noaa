@@ -22,7 +22,7 @@ nwfsc_strata_by_species <- function() {
     c("Pacific halibut", "strata cw 400"),
     c("Pacific herring", "strata 34.5-49 250"),
     c("Pacific sanddab", "strata cw 250"),
-    c("Pacific spiny dogfish", "strata cw 450"), 
+    c("Pacific spiny dogfish", "strata cw 450"),
     c("petrale sole", "strata cw 400"),
     c("rex sole", "strata cw 549"),
     c("southern rock sole", "strata cw 183"),
