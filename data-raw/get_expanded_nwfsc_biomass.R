@@ -1,9 +1,14 @@
 spp_list <- list(
   "arrowtooth flounder",
+  "canary rockfish",
+  "chilipepper",
+  "darkblotched rockfish",
   "Dover sole",
   "English sole",
   "flathead sole",
   "giant grenadier",
+  "lingcod",
+  "longspine thornyhead",
   "Pacific cod",
   "Pacific hake", 
   "Pacific halibut",
@@ -11,13 +16,16 @@ spp_list <- list(
   "Pacific ocean perch",
   "Pacific sanddab",
   "Pacific spiny dogfish", 
+  "petrale sole",
   "rex sole",
   "southern rock sole", 
   "sablefish",
   "sharpchin rockfish",
+  "shortbelly rockfish",
   "shortspine thornyhead",
   "splitnose rockfish",
   "spotted ratfish",
+  "stripetail rockfish",
   "yellowtail rockfish"
 )
 

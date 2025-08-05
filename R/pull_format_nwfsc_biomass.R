@@ -38,7 +38,6 @@ pull_format_nwfsc_biomass <- function(
 
   # Define the strata for expansion
   strata <- get_nwfsc_strata(common_name = common_name)
-  print(strata)
   # Calculate the design-based index
   nwfsc_biomass <- nwfscSurvey::get_design_based(
     data = catch,
