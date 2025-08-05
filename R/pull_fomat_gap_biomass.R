@@ -47,7 +47,7 @@ pull_format_gap_biomass <- function(
   if (length(gap_biomass) > 0) {
     gap_biomass$common_name <- taxa[, "common_name"]
     gap_biomass$scientific_name <- taxa[, "species_name"]
-    
+
     biomass <- gap_biomass |>
       dplyr::mutate(
         science_center = "AFSC",
@@ -70,5 +70,4 @@ pull_format_gap_biomass <- function(
     )
     return(biomass[, columns_to_keep])
   }
-  
 }
